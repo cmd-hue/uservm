@@ -615,13 +615,13 @@ var videovm = (function () {
 
             forceFrames(canvas); // 👈 force redraws
             recorder.start();
-            recbuttom.innerHTML = "Recording..."
+            recbutton.innerHTML = "Recording..."
             recording = true;
 
         } else {
 
             recorder.stop();
-            recbuttom.innerHTML = "Record VM Screen"
+            recbutton.innerHTML = "Record VM Screen"
             recording = false;
         }
 
