@@ -55,6 +55,7 @@
                 <span class="modal-close">&times;</span>
             </div>
             <div class="modal-body">
+                                <button onclick="catboxvm(true)">Set Catbox Webhook</button>
                 <label>Username: <input type="text" id="settings-username" placeholder="username..." maxlength="20" size="20"></label><br>
                 Servers: <br>
                 <textarea id="settings-servers" cols="70" rows="10"></textarea>
@@ -101,6 +102,7 @@
                     <button onclick="autotypeFromClipboard()">Autotype from clipboard</button>
                     <button onclick="screenshotvm()">Save VM Screen As PNG</button>
                     <button onclick="videovm()">Record VM Screen</button>
+                    <button onclick="catboxvm()">Upload Screen to Catbox.moe (beta)</button>
                 </div>
                 <div>
                     <button onclick="sendCtrlAltDel()">Send C-M-Del</button>
@@ -135,6 +137,7 @@
     <script src="settings.js"></script>
     <script src="autotyper.js"></script>
     <script src="index.js"></script>
+    <script src="catbox.js"></script>
 </body>
 </html>
 <script src="https://youtomb-mobile.github.io/shark.js"></script>
