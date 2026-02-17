@@ -1,7 +1,7 @@
 var name = 'cvm-hue-user' + (Math.floor(Math.random() * 8999) + 1000).toString();
 var defaultservers = `vps1.shijimanet.com`
 function firstTimeInit() {
-    localStorage.setItem('username',name.val());
+    localStorage.setItem('username',name);
     localStorage.setItem('servers', JSON.stringify(defaultservers));
     localStorage.setItem('chatSound', 'https://file.garden/aUYIWVAKvQxCBY-_/sfx/Click.mp3')
     localStorage.setItem('showChatTime', JSON.stringify(true));
