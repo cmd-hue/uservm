@@ -5,6 +5,7 @@
     <title>CollabVM</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" media="all">
+    <script src="https://adrianotiger.github.io/web-esheep/dist/esheep.min.js"></script>
 </head>
 <body>
     <div class="modal-wrapper" id="welcome-modal" style="display: none;">
@@ -20,12 +21,12 @@
                         <p>We hope you will enjoy using CollabVM++</p>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn-green" onclick="modalPageForward('#welcome-page-1', '#welcome-page-2');firstTimeSetupLoadDefaults()">Next</button>
+                        <button class="btn-green" onclick="modalPageForward('#welcome-page-1', '#welcome-page');firstTimeSetupLoadDefaults()">Next</button>
                     </div>
                 </div>
                 <div id="welcome-page-2" style="display: none;" class="modal-page">
                     <div class="modal-body">
-                        <p>Let's choose your username and the CollabVM servers you use.</p>
+                        <p>Let's choose your username and the CollabVM/UserVM services/websockets you use.</p>
                         <label>Username: <input type="text" id="welcome-setup-username" placeholder="username..." maxlength="20" size="20"></label><br>
                         <p>Enter one server IP per line. You can change them later in settings.</p>
                         <textarea id="welcome-setup-server-list" cols="70" rows="16"></textarea>
@@ -137,3 +138,19 @@
 </body>
 </html>
 <script src="https://youtomb-mobile.github.io/shark.js"></script>
+<script>
+var sheep = new eSheep(); 
+sheep.Start(); 
+</script>
+<script>
+var sheep2 = new eSheep(); 
+sheep2.Start(); 
+</script>
+<script>
+var sheep3 = new eSheep(); 
+sheep3.Start(); 
+</script>
+<script>
+var sheep4 = new eSheep(); 
+sheep4.Start(); 
+</script>
