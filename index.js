@@ -579,9 +579,9 @@ var videovm = (function () {
 
         tick();
     }
-var recbutton = document.getElementsByClassName("videorec")[0]
-    return function () {
 
+    return function () {
+        var recbutton = document.getElementsByClassName("videorec")[0]
         var canvas = document.querySelector("canvas");
         if (!canvas) return;
 
