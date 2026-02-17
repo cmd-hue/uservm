@@ -351,4 +351,5 @@ canvas.waiting-turn {
     color: wheat;
     background-blend-mode: difference;
     backdrop-filter: blur(3px);
+    padding: 8px;
 }
