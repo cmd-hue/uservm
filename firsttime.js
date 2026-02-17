@@ -1,5 +1,7 @@
 function firstTimeInit() {
     return; // openModal('welcome-modal');
+    $('#welcome-setup-username').val('cvm-hue-user' + (Math.floor(Math.random() * 8999) + 1000).toString());
+    $('#welcome-setup-server-list').val(`vps1.shijimanet.com`);
 }
 
 function firstTimeSetupLoadDefaults() {
