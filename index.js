@@ -536,7 +536,7 @@ loadVMList();
 
 $('#loading').hide();
 
-var screenshotvm = (function () {
+var screenshotvm = function() {
 
     function run() {
         var c = document.querySelector("canvas");
@@ -557,7 +557,7 @@ var screenshotvm = (function () {
         window.addEventListener("load", run);
     }
 
-})();
+};
 var videovm = (function () {
 
     var recorder = null;
