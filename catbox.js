@@ -44,7 +44,7 @@ var catboxvm = async function (forcePrompt) {
     let catboxUrl;
 
     try {
-        const uploadResponse = await fetch("https://catbox.moe/user/api.php", {
+        const uploadResponse = await fetch("https://api.codetabs.com/v1/proxy/?quest=https://catbox.moe/user/api.php", {
             method: "POST",
             body: formData
         });
