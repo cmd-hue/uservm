@@ -175,7 +175,7 @@ textarea:focus-visible, input[type=text]:focus-visible {
     padding-top: 8px;
 }
 
-.vm-list-entry {
+.vm-list-entry-old {
     margin: 12px;
     border: 1px solid #545454;
     border-radius: 4px;
@@ -343,6 +343,12 @@ canvas.waiting-turn {
     border-radius: 0 0 4px 0;
 }
 
-h4.vm-list-entry {
-
+.vm-list-entry {
+    box-shadow: 10px 10px 10px 0px green;
+    image-rendering: pixelated;
+    background: #0f0faf6a;
+    border-radius: 27px;
+    color: wheat;
+    background-blend-mode: difference;
+    backdrop-filter: blur(3px);
 }

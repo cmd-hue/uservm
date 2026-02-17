@@ -8,7 +8,7 @@ function dontResetAllSettings() {
 }
 
 function resetConfirmation() {
-    let modal = makeSimpleModal('reset-warning-modal', 'Reset Confirmation', 'You are about to reset <b>ALL</b> settings of CollabVM++. Are you sure you want to do this?', [
+    let modal = makeSimpleModal('reset-warning-modal', 'Reset Confirmation', 'You are about to reset <b>ALL</b> settings of CollabVM++. Are you sure you want to do this? This CANNOT be undone.', [
         {
             classes: 'btn-red', html: 'Yes', click: () => resetAllSettings()
         },
