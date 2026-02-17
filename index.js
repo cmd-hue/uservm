@@ -588,4 +588,18 @@ var videovm = (function () {
                 a.download = "vm.webm";
                 a.click();
 
-                URL.revok
+                URL.revokeObjectURL(url);
+            };
+
+            recorder.start();
+            recording = true;
+
+        } else {
+            // STOP RECORDING
+            recorder.stop();
+            recording = false;
+        }
+
+    };
+
+})();
