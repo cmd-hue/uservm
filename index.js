@@ -456,12 +456,14 @@ async function enterVM(ip, name, title) {
             $('#user-list').empty();
             $('#chat-display').empty();
             userList.users = [];
+            console.log("closed");
         },
         onError: e => {
             $('#loading').show();
             $('#user-list').empty();
             $('#chat-display').empty();
             userList.users = [];
+            modalAlert("Announcement","An error has occured. Please try again later.")
         },
     }, true);
 }
