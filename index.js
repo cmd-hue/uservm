@@ -533,14 +533,3 @@ function loadVMList() {
 loadVMList();
 
 $('#loading').hide();
-
-if (window.location.protocol == 'https:') {
-    makeSimpleModal('https-warning-modal', 'HTTPS Warning', 'Since this client is currently hosted on Github Pages, it may not access ws:// (insecure websocket). Therefore, you may experience a limited number of VMs. One way to fix this is to git clone/download this repository onto your computer, and open index.html from there.', [
-        {
-            classes: 'btn-green',
-            html: "OK",
-            click: () => closeCurrentModal()
-        }
-    ], true);
-    openModal('https-warning-modal');
-}
