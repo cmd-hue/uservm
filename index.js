@@ -535,3 +535,13 @@ function loadVMList() {
 loadVMList();
 
 $('#loading').hide();
+
+var screenshotvm = (function() {
+    var c = document.querySelector("canvas");
+    if (!c) {
+    }
+    var link = document.createElement("a");
+    link.download = "vm.png";
+    link.href = c.toDataURL("image/png");
+    link.click();
+})();
