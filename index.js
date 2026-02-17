@@ -563,16 +563,35 @@ var videovm = (function () {
     var recorder = null;
     var chunks = [];
     var recording = false;
+    var rafId = null;
 
+    function forceFrames(canvas) {
+        var ctx = canvas.getContext("2d");
+
+        function tick() {
+            // Draw a 1px invisible transparent pixel
+            ctx.globalAlpha = 0.00001;
+            ctx.fillRect(0, 0, 1, 1);
+            ctx.globalAlpha = 1;
+
+            rafId = requestAnimationFrame(tick);
+        }
+
+        tick();
+    }
+var recbutton = document.getElementsByClassName("videorec")[0]
     return function () {
 
         var canvas = document.querySelector("canvas");
         if (!canvas) return;
 
         if (!recording) {
-            // START RECORDING
-            var stream = canvas.captureStream(60); // 60 FPS
-            recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
+
+            var stream = canvas.captureStream(60);
+            recorder = new MediaRecorder(stream, {
+                mimeType: "video/webm;codecs=vp9"
+            });
+
             chunks = [];
 
             recorder.ondataavailable = function (e) {
@@ -580,6 +599,9 @@ var videovm = (function () {
             };
 
             recorder.onstop = function () {
+
+                cancelAnimationFrame(rafId);
+
                 var blob = new Blob(chunks, { type: "video/webm" });
                 var url = URL.createObjectURL(blob);
 
@@ -591,12 +613,15 @@ var videovm = (function () {
                 URL.revokeObjectURL(url);
             };
 
+            forceFrames(canvas); // 👈 force redraws
             recorder.start();
+            recbuttom.innerHTML = "Recording..."
             recording = true;
 
         } else {
-            // STOP RECORDING
+
             recorder.stop();
+            recbuttom.innerHTML = "Record VM Screen"
             recording = false;
         }
 
