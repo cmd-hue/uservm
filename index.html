@@ -74,10 +74,27 @@
             </div>
         </div>
     </div>
+    <div class="modal-wrapper" id="bugs-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Known Bugs</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Hyphens and some other keys don't work</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-green" onclick="closeCurrentModal()">Ok</button>
+            </div>
+        </div>
+    </div>
     <div id="navbar">
         <span id="navbar-logo">COLLABVM UNOFFICIAL VIEWER</span>
         <span id="navbar-back" style="display: none;" onclick="exitVM()">Back</span>
         <span onclick="loadSettingsToUI();openModal('settings-modal')">Settings</span>
+        <span onclick="openModal('bugs-modal')">Known Bugs</span>
     </div>
 	<hr>
     <div id="vm-list">
@@ -104,7 +121,6 @@
                     <button onclick="autotypeFromClipboard()">Autotype from clipboard</button>
                     <button onclick="screenshotvm()">Save VM Screen As PNG</button>
                     <button onclick="videovm()" class="videorec">Record VM Screen</button>
-                    <button onclick="catboxvm()">Upload Screen to Catbox.moe (beta)</button>
                 </div>
                 <div>
                     <button onclick="sendCtrlAltDel()">Send C-M-Del</button>
