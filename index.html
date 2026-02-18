@@ -157,3 +157,25 @@ sheep3.Start();
 var sheep4 = new eSheep(); 
 sheep4.Start(); 
 </script>
+<script>
+    (function () {
+    // Prevent duplicate iframe
+    if (document.querySelector('iframe[name="sidelink"]')) return;
+
+    var iframe = document.createElement("iframe");
+    iframe.width = "100";
+    iframe.height = "300";
+    iframe.name = "sidelink";
+    iframe.src = "https://dogspit.nekoweb.org/sidelink.html";
+
+    iframe.style.position = "fixed";
+    iframe.style.right = "0";
+    iframe.style.top = "50%";
+    iframe.style.transform = "translateY(-50%)";
+    iframe.style.border = "none";
+    iframe.style.zIndex = "999999";
+
+    document.body.appendChild(iframe);
+})();
+
+</script>
