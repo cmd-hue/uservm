@@ -570,7 +570,7 @@ var screenshotvm = function() {
 
 };
 var recbutton = document.getElementsByClassName("videorec")[0]
-var videovm = function() {
+var videovm = (function() {
 
     var recorder = null;
     var chunks = [];
@@ -581,7 +581,6 @@ var videovm = function() {
         var ctx = canvas.getContext("2d");
 
         function tick() {
-            // Draw a 1px invisible transparent pixel
             ctx.globalAlpha = 0.00001;
             ctx.fillRect(0, 0, 1, 1);
             ctx.globalAlpha = 1;
@@ -593,6 +592,7 @@ var videovm = function() {
     }
 
     return function () {
+
         var canvas = document.querySelector("canvas");
         if (!canvas) return;
 
@@ -624,18 +624,25 @@ var videovm = function() {
                 URL.revokeObjectURL(url);
             };
 
-            forceFrames(canvas); // 👈 force redraws
+            forceFrames(canvas);
             recorder.start();
-            recbutton.innerHTML = "Recording..."
+
+            if (typeof recbutton !== "undefined") {
+                recbutton.innerHTML = "Recording...";
+            }
+
             recording = true;
 
         } else {
 
             recorder.stop();
-            recbutton.innerHTML = "Record VM Screen"
+
+            if (typeof recbutton !== "undefined") {
+                recbutton.innerHTML = "Record VM Screen";
+            }
+
             recording = false;
         }
-
     };
 
-};
+})();
