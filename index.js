@@ -415,6 +415,8 @@ function sendCtrlAltDel() {
 }
 function pressCapsLock() {
     currentConn.sendGuac(['key', '65509', '1']); // press caps lock
+}
+function releaseCapsLock() {
     currentConn.sendGuac(['key', '65509', '0']); // release caps lock
 }
 function voteYes() {
