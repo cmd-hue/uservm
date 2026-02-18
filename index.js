@@ -570,7 +570,7 @@ var screenshotvm = function() {
 
 };
 var recbutton = document.getElementsByClassName("videorec")[0]
-var videovm = (function () {
+var videovm = function() {
 
     var recorder = null;
     var chunks = [];
@@ -638,4 +638,4 @@ var videovm = (function () {
 
     };
 
-})();
+};
