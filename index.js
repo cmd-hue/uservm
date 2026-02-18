@@ -559,6 +559,7 @@ var screenshotvm = function() {
     }
 
 };
+var recbutton = document.getElementsByClassName("videorec")[0]
 var videovm = (function () {
 
     var recorder = null;
@@ -582,7 +583,6 @@ var videovm = (function () {
     }
 
     return function () {
-        var recbutton = document.getElementsByClassName("videorec")[0]
         var canvas = document.querySelector("canvas");
         if (!canvas) return;
 
