@@ -413,6 +413,10 @@ function sendCtrlAltDel() {
     currentConn.sendGuac(['key', '65513', '0']); // release alt
     currentConn.sendGuac(['key', '65507', '0']); // release ctrl
 }
+function pressCapsLock() {
+    currentConn.sendGuac(['key', '65509', '1']); // press caps lock
+    currentConn.sendGuac(['key', '65509', '0']); // release caps lock
+}
 function voteYes() {
     currentConn.sendGuac(['vote', '1']);
 }
