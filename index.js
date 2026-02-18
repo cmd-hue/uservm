@@ -427,6 +427,7 @@ function voteNo() {
 }
 
 async function enterVM(ip, name, title) {
+    document.title = name + " - CollabVM"
     $('#vm-list').hide();
     $('#vm-view').show();
     $('#navbar-back').show();
@@ -463,14 +464,17 @@ async function enterVM(ip, name, title) {
             $('#chat-display').empty();
             userList.users = [];
             console.log("closed");
+            document.title = "CollabVM"
         },
         onError: e => {
             $('#loading').show();
             $('#user-list').empty();
             $('#chat-display').empty();
             userList.users = [];
-            modalAlert("Warning","An error has occured. Please try again later.");
+            document.title = name
+            modalAlert("Disconnected","An error has occured and your connection has been lost.Sorry about that.");
             exitVM();
+            
         },
     }, true);
 }
