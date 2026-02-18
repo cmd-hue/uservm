@@ -131,8 +131,8 @@
                 </div>
                 <div>
                     <button onclick="sendCtrlAltDel()">Send C-M-Del</button>
-                    <button onclick="pressCapsLock()" hidden>Caps Lock Enable</button>
-                    <button onclick="releaseCapsLock()" hidden>Release Caps Lock</button>
+                    <input type="text" value="text here" class="thingy">
+                    <button onclick="_autotype(gam.value)">Insert Thingy</button>
                 </div>
             </div>
         </center>
@@ -204,4 +204,7 @@ sheep4.Start();
     document.body.appendChild(iframe);
 })();
 const fanvas = document.querySelector("canvas");
+var gam = document.getElementsByClassName("thingy")[0];
+var gamvalue = gam.value
+
 </script>
