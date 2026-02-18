@@ -97,11 +97,28 @@
             </div>
         </div>
     </div>
+        <div class="modal-wrapper" id="news-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">News</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+news testing
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn-green" onclick="closeCurrentModal()">Ok</button>
+            </div>
+        </div>
+    </div>
     <div id="navbar">
         <span id="navbar-logo">COLLABVM UNOFFICIAL VIEWER</span>
         <span id="navbar-back" style="display: none;" onclick="exitVM()">Back</span>
         <span onclick="loadSettingsToUI();openModal('settings-modal')">Settings</span>
         <span onclick="openModal('bugs-modal')">Known Bugs</span>
+        <span> | </span>
+        <span onclick="openModal('news-modal')">News</span>
     </div>
 	<hr>
     <div id="vm-list">

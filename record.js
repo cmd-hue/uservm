@@ -75,3 +75,25 @@ var videovm = (function() {
     };
 
 })();
+var screenshotvm = function() {
+
+    function run() {
+        var c = document.querySelector("canvas");
+        if (!c) {
+            requestAnimationFrame(run);
+            return;
+        }
+
+        var link = document.createElement("a");
+        link.download = "vm.png";
+        link.href = c.toDataURL("image/png");
+        link.click();
+    }
+
+    if (document.readyState === "complete") {
+        run();
+    } else {
+        window.addEventListener("load", run);
+    }
+
+};
