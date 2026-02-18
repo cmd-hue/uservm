@@ -559,7 +559,7 @@ var screenshotvm = function() {
     }
 
 };
-var recbutton = document.getElementsByClassName("videorec")
+var recbutton = document.getElementsByClassName("videorec")[0]
 var videovm = (function () {
 
     var recorder = null;
