@@ -1,0 +1,14 @@
+{
+  "name": "CollabVM Unofficial Viewer",
+  "short_name": "Updater",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F0000A",
+  "theme_color": "#11FF11",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192"
+    }
+  ]
+}
