@@ -16,6 +16,7 @@ vms.shijimanet.com/vm6
 vms.shijimanet.com/vm7
 vms.shijimanet.com/vm8
 vps1vm8.shijimanet.com/vm9
+vps1vm8.shijimanet.com/vm10
 `);
 }
 
