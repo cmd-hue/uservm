@@ -6,6 +6,16 @@ function firstTimeSetupLoadDefaults() {
     $('#welcome-setup-username').val('cvm-hue-user' + (Math.floor(Math.random() * 8999) + 1000).toString());
     $('#welcome-setup-server-list').val(`vps1.shijimanet.com
         vps1vm8.shijimanet.com
+        vms.shijimanet.com/vm0
+        vms.shijimanet.com/vm1
+        vms.shijimanet.com/vm2
+        vms.shijimanet.com/vm3
+        vms.shijimanet.com/vm4
+        vms.shijimanet.com/vm5
+        vms.shijimanet.com/vm6
+        vms.shijimanet.com/vm7
+        vms.shijimanet.com/vm8
+        vms.shijimanet.com/vm9
         `);
 }
 
