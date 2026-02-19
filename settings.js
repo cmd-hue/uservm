@@ -26,6 +26,7 @@ function loadSettingsToUI() {
     $('#settings-chat-time').prop('checked', JSON.parse(localStorage.getItem('showChatTime')));
     $('#settings-chat-time-utc').prop('checked', JSON.parse(localStorage.getItem('showChatTimeInUTC')));
     $('#settings-esheep').prop('checked', JSON.parse(localStorage.getItem('showEsheep')));
+    $('#settings-sidelink').prop('checked', JSON.parse(localStorage.getItem('showSidelink')));
     $('#settings-vm-view-fit').prop('checked', JSON.parse(localStorage.getItem('vmViewFit')));
 }
 
@@ -37,6 +38,8 @@ function saveSettingsFromUI() {
     localStorage.setItem('showChatTimeInUTC', JSON.stringify($('#settings-chat-time-utc').prop('checked')));
     localStorage.setItem('vmViewFit', JSON.stringify($('#settings-vm-view-fit').prop('checked')));
     localStorage.setItem('showEsheep', JSON.stringify($('#settings-esheep').prop('checked')));
+    localStorage.setItem('showSidelink', JSON.stringify($('#settings-sidelink').prop('checked')));
+    
     if ($('#settings-vm-view-fit').prop('checked')) $('canvas').css('max-width', '97vw');
     else $('canvas').css('max-width', 'auto');
 

@@ -73,6 +73,7 @@
                 <label>Show chat time<input id="settings-chat-time" type="checkbox" name=""></label><br>
                 <label>Show chat time in UTC<input id="settings-chat-time-utc" type="checkbox" name=""></label><br><br>
                 <label>Show eSheep<input id="settings-esheep" type="checkbox" name=""></label><br><br>
+                <label>Show eSheep<input id="settings-sidelink" type="checkbox" value="true" name=""></label><br><br>
                 <label>Make VM view fit screen horizontally<input id="settings-vm-view-fit" type="checkbox" name=""></label><br><br>
                 <button class="btn-red" onclick="resetConfirmation()">Reset all settings</button>
             </div>
@@ -227,7 +228,8 @@ sheep6.Start();
 }
 </script>
 <script>
-    (function () {
+    if (localStorage.getItem('showSidelink') === true) {
+        (function () {
     // Prevent duplicate iframe
     if (document.querySelector('iframe[name="sidelink"]')) return;
 
@@ -246,6 +248,7 @@ sheep6.Start();
 
     document.body.appendChild(iframe);
 })();
+    }
 const fanvas = document.querySelector("canvas");
 var gam = document.getElementsByClassName("thingy")[0];
 var gamvalue = gam.value
