@@ -112,6 +112,24 @@ news testing
             </div>
         </div>
     </div>
+            <div class="modal-wrapper" id="cmd-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Copygangster</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+            <center> 
+               <ul>
+                <li>net user chicken /add</li>
+                <li>https://dns.nextdns.io/f2be86 - DNS</li>
+            </ul></center>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-green" onclick="closeCurrentModal()">Ok</button>
+            </div>
+        </div>
+    </div>
     <div id="navbar">
         <span id="navbar-logo">COLLABVM UNOFFICIAL VIEWER</span>
         <span id="navbar-back" style="display: none;" onclick="exitVM()">Back</span>
@@ -119,6 +137,8 @@ news testing
         <span onclick="openModal('bugs-modal')">Known Bugs</span>
         <span> | </span>
         <span onclick="openModal('news-modal')">News</span>
+        <span> | </span>
+        <span onclick="openModal('cmd-modal')">Copygangster</span>
     </div>
 	<hr>
     <div id="vm-list">
