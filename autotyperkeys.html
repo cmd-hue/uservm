@@ -8,6 +8,11 @@
         table { border-collapse: collapse; margin-bottom: 30px; }
         th, td { border: 1px solid #000; padding: 6px 10px; }
         th { background: #f0f0f0; }
+        button.copy-btn {
+            margin-left: 8px;
+            padding: 2px 6px;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
@@ -15,74 +20,87 @@
 <h1>AutoTyper Key Code References</h1>
 
 <table>
-    <tr><th>Key</th><th>Code(s)</th></tr>
-    <tr><td>alt_r</td><td>0xFE03</td></tr>
-    <tr><td>backspace</td><td>0xFF08</td></tr>
-    <tr><td>tab</td><td>0xFF09</td></tr>
-    <tr><td>enter</td><td>0xFF0D</td></tr>
-    <tr><td>return</td><td>0xFF0D</td></tr>
-    <tr><td>esc</td><td>0xFF1B</td></tr>
-    <tr><td>shift</td><td>0xFFE1</td></tr>
-    <tr><td>ctrl</td><td>0xFFE3</td></tr>
-    <tr><td>ctrl_r</td><td>0xFFE4</td></tr>
-    <tr><td>alt</td><td>0xFFE9</td></tr>
-    <tr><td>win</td><td>0xFFEB</td></tr>
-    <tr><td>delete</td><td>0xFFFF</td></tr>
-    <tr><td>del</td><td>0xFFFF</td></tr>
-    <tr><td>pause</td><td>0xFF13</td></tr>
-    <tr><td>caps</td><td>0xFFE5</td></tr>
-    <tr><td>space</td><td>0x0020</td></tr>
-    <tr><td>pageup</td><td>0xFF55</td></tr>
-    <tr><td>pagedown</td><td>0xFF56</td></tr>
-    <tr><td>end</td><td>0xFF57</td></tr>
-    <tr><td>home</td><td>0xFF50</td></tr>
-    <tr><td>left</td><td>0xFF51</td></tr>
-    <tr><td>up</td><td>0xFF52</td></tr>
-    <tr><td>right</td><td>0xFF53</td></tr>
-    <tr><td>down</td><td>0xFF54</td></tr>
-    <tr><td>insert</td><td>0xFF63</td></tr>
-    <tr><td>f1</td><td>0xFFBE</td></tr>
-    <tr><td>f2</td><td>0xFFBF</td></tr>
-    <tr><td>f3</td><td>0xFFC0</td></tr>
-    <tr><td>f4</td><td>0xFFC1</td></tr>
-    <tr><td>f5</td><td>0xFFC2</td></tr>
-    <tr><td>f6</td><td>0xFFC3</td></tr>
-    <tr><td>f7</td><td>0xFFC4</td></tr>
-    <tr><td>f8</td><td>0xFFC5</td></tr>
-    <tr><td>f9</td><td>0xFFC6</td></tr>
-    <tr><td>f10</td><td>0xFFC7</td></tr>
-    <tr><td>f11</td><td>0xFFC8</td></tr>
-    <tr><td>f12</td><td>0xFFC9</td></tr>
-    <tr><td>numlock</td><td>0xFF7F</td></tr>
-    <tr><td>scrolllock</td><td>0xFF14</td></tr>
+    <tr><th>Key</th><th>Code(s)</th><th>Copy Raw</th></tr>
+    <tr><td>alt_r</td><td>0xFE03</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>backspace</td><td>0xFF08</td><td><button class="copy-btn" data-char="￈">Copy</button></td></tr>
+    <tr><td>tab</td><td>0xFF09</td><td><button class="copy-btn" data-char="￉">Copy</button></td></tr>
+    <tr><td>enter</td><td>0xFF0D</td><td><button class="copy-btn" data-char="ￍ">Copy</button></td></tr>
+    <tr><td>return</td><td>0xFF0D</td><td><button class="copy-btn" data-char="ￍ">Copy</button></td></tr>
+    <tr><td>esc</td><td>0xFF1B</td><td><button class="copy-btn" data-char="ￛ">Copy</button></td></tr>
+    <tr><td>shift</td><td>0xFFE1</td><td><button class="copy-btn" data-char="￡">Copy</button></td></tr>
+    <tr><td>ctrl</td><td>0xFFE3</td><td><button class="copy-btn" data-char="￣">Copy</button></td></tr>
+    <tr><td>ctrl_r</td><td>0xFFE4</td><td><button class="copy-btn" data-char="￤">Copy</button></td></tr>
+    <tr><td>alt</td><td>0xFFE9</td><td><button class="copy-btn" data-char="￩">Copy</button></td></tr>
+    <tr><td>win</td><td>0xFFEB</td><td><button class="copy-btn" data-char="￫">Copy</button></td></tr>
+    <tr><td>delete</td><td>0xFFFF</td><td><button class="copy-btn" data-char="￿">Copy</button></td></tr>
+    <tr><td>del</td><td>0xFFFF</td><td><button class="copy-btn" data-char="￿">Copy</button></td></tr>
+    <tr><td>pause</td><td>0xFF13</td><td><button class="copy-btn" data-char="ￓ">Copy</button></td></tr>
+    <tr><td>caps</td><td>0xFFE5</td><td><button class="copy-btn" data-char="￥">Copy</button></td></tr>
+    <tr><td>space</td><td>0x0020</td><td><button class="copy-btn" data-char=" ">Copy</button></td></tr>
+    <tr><td>pageup</td><td>0xFF55</td><td><button class="copy-btn" data-char="ｕ">Copy</button></td></tr>
+    <tr><td>pagedown</td><td>0xFF56</td><td><button class="copy-btn" data-char="ｖ">Copy</button></td></tr>
+    <tr><td>end</td><td>0xFF57</td><td><button class="copy-btn" data-char="ｗ">Copy</button></td></tr>
+    <tr><td>home</td><td>0xFF50</td><td><button class="copy-btn" data-char="Ｐ">Copy</button></td></tr>
+    <tr><td>left</td><td>0xFF51</td><td><button class="copy-btn" data-char="Ｑ">Copy</button></td></tr>
+    <tr><td>up</td><td>0xFF52</td><td><button class="copy-btn" data-char="Ｒ">Copy</button></td></tr>
+    <tr><td>right</td><td>0xFF53</td><td><button class="copy-btn" data-char="Ｓ">Copy</button></td></tr>
+    <tr><td>down</td><td>0xFF54</td><td><button class="copy-btn" data-char="Ｔ">Copy</button></td></tr>
+    <tr><td>insert</td><td>0xFF63</td><td><button class="copy-btn" data-char="ｃ">Copy</button></td></tr>
+    <tr><td>f1</td><td>0xFFBE</td><td><button class="copy-btn" data-char="￾">Copy</button></td></tr>
+    <tr><td>f2</td><td>0xFFBF</td><td><button class="copy-btn" data-char="￿">Copy</button></td></tr>
+    <tr><td>f3</td><td>0xFFC0</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f4</td><td>0xFFC1</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f5</td><td>0xFFC2</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f6</td><td>0xFFC3</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f7</td><td>0xFFC4</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f8</td><td>0xFFC5</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f9</td><td>0xFFC6</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f10</td><td>0xFFC7</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f11</td><td>0xFFC8</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>f12</td><td>0xFFC9</td><td><button class="copy-btn" data-char="">Copy</button></td></tr>
+    <tr><td>numlock</td><td>0xFF7F</td><td><button class="copy-btn" data-char="ｿ">Copy</button></td></tr>
+    <tr><td>scrolllock</td><td>0xFF14</td><td><button class="copy-btn" data-char="ￔ">Copy</button></td></tr>
 </table>
 
 <h1>These are the keys that need to be translated (for example, '!' → shift + 1)</h1>
 
 <table>
-    <tr><th>Character</th><th>Code Combination</th></tr>
-    <tr><td>~</td><td>0xFFE1 + 0x60</td></tr>
-    <tr><td>!</td><td>0xFFE1 + 0x31</td></tr>
-    <tr><td>@</td><td>0xFFE1 + 0x32</td></tr>
-    <tr><td>#</td><td>0xFFE1 + 0x33</td></tr>
-    <tr><td>$</td><td>0xFFE1 + 0x34</td></tr>
-    <tr><td>%</td><td>0xFFE1 + 0x35</td></tr>
-    <tr><td>^</td><td>0xFFE1 + 0x36</td></tr>
-    <tr><td>&amp;</td><td>0xFFE1 + 0x37</td></tr>
-    <tr><td>*</td><td>0xFFE1 + 0x38</td></tr>
-    <tr><td>(</td><td>0xFFE1 + 0x39</td></tr>
-    <tr><td>)</td><td>0xFFE1 + 0x30</td></tr>
-    <tr><td>_</td><td>0xFFE1 + 0x2D</td></tr>
-    <tr><td>+</td><td>0xFFE1 + 0x3D</td></tr>
-    <tr><td>{</td><td>0xFFE1 + 0x5B</td></tr>
-    <tr><td>}</td><td>0xFFE1 + 0x5D</td></tr>
-    <tr><td>:</td><td>0xFFE1 + 0x3B</td></tr>
-    <tr><td>"</td><td>0xFFE1 + 0x27</td></tr>
-    <tr><td>|</td><td>0xFFE1 + 0x5C</td></tr>
-    <tr><td>&lt;</td><td>0xFFE1 + 0x2C</td></tr>
-    <tr><td>&gt;</td><td>0xFFE1 + 0x2E</td></tr>
-    <tr><td>?</td><td>0xFFE1 + 0x2F</td></tr>
+    <tr><th>Character</th><th>Code Combination</th><th>Copy Raw</th></tr>
+    <tr><td>~</td><td>0xFFE1 + 0x60</td><td><button class="copy-btn" data-char="~">Copy</button></td></tr>
+    <tr><td>!</td><td>0xFFE1 + 0x31</td><td><button class="copy-btn" data-char="!">Copy</button></td></tr>
+    <tr><td>@</td><td>0xFFE1 + 0x32</td><td><button class="copy-btn" data-char="@">Copy</button></td></tr>
+    <tr><td>#</td><td>0xFFE1 + 0x33</td><td><button class="copy-btn" data-char="#">Copy</button></td></tr>
+    <tr><td>$</td><td>0xFFE1 + 0x34</td><td><button class="copy-btn" data-char="$">Copy</button></td></tr>
+    <tr><td>%</td><td>0xFFE1 + 0x35</td><td><button class="copy-btn" data-char="%">Copy</button></td></tr>
+    <tr><td>^</td><td>0xFFE1 + 0x36</td><td><button class="copy-btn" data-char="^">Copy</button></td></tr>
+    <tr><td>&amp;</td><td>0xFFE1 + 0x37</td><td><button class="copy-btn" data-char="&">Copy</button></td></tr>
+    <tr><td>*</td><td>0xFFE1 + 0x38</td><td><button class="copy-btn" data-char="*">Copy</button></td></tr>
+    <tr><td>(</td><td>0xFFE1 + 0x39</td><td><button class="copy-btn" data-char="(">Copy</button></td></tr>
+    <tr><td>)</td><td>0xFFE1 + 0x30</td><td><button class="copy-btn" data-char=")">Copy</button></td></tr>
+    <tr><td>_</td><td>0xFFE1 + 0x2D</td><td><button class="copy-btn" data-char="_">Copy</button></td></tr>
+    <tr><td>+</td><td>0xFFE1 + 0x3D</td><td><button class="copy-btn" data-char="+">Copy</button></td></tr>
+    <tr><td>{</td><td>0xFFE1 + 0x5B</td><td><button class="copy-btn" data-char="{">Copy</button></td></tr>
+    <tr><td>}</td><td>0xFFE1 + 0x5D</td><td><button class="copy-btn" data-char="}">Copy</button></td></tr>
+    <tr><td>:</td><td>0xFFE1 + 0x3B</td><td><button class="copy-btn" data-char=":">Copy</button></td></tr>
+    <tr><td>"</td><td>0xFFE1 + 0x27</td><td><button class="copy-btn" data-char='"'>Copy</button></td></tr>
+    <tr><td>|</td><td>0xFFE1 + 0x5C</td><td><button class="copy-btn" data-char="|">Copy</button></td></tr>
+    <tr><td>&lt;</td><td>0xFFE1 + 0x2C</td><td><button class="copy-btn" data-char="<">Copy</button></td></tr>
+    <tr><td>&gt;</td><td>0xFFE1 + 0x2E</td><td><button class="copy-btn" data-char=">">Copy</button></td></tr>
+    <tr><td>?</td><td>0xFFE1 + 0x2F</td><td><button class="copy-btn" data-char="?">Copy</button></td></tr>
 </table>
+
+<script>
+    // Add copy functionality for all copy buttons
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const char = btn.getAttribute('data-char');
+            navigator.clipboard.writeText(char).then(() => {
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 1000);
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
