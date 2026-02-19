@@ -72,6 +72,7 @@
                 <label>Chat sound: <input type="text" id="settings-chat-sound" size="50"></label><br><br>
                 <label>Show chat time<input id="settings-chat-time" type="checkbox" name=""></label><br>
                 <label>Show chat time in UTC<input id="settings-chat-time-utc" type="checkbox" name=""></label><br><br>
+                <label>Show eSheep<input id="settings-esheep" type="checkbox" name=""></label><br><br>
                 <label>Make VM view fit screen horizontally<input id="settings-vm-view-fit" type="checkbox" name=""></label><br><br>
                 <button class="btn-red" onclick="resetConfirmation()">Reset all settings</button>
             </div>
@@ -208,20 +209,16 @@ Oh...
 </html>
 <script src="https://youtomb-mobile.github.io/shark.js"></script>
 <script>
-var sheep = new eSheep(); 
+if (localStorage.getItem('showEsheep')) {
+    var sheep = new eSheep(); 
 sheep.Start(); 
-</script>
-<script>
 var sheep2 = new eSheep(); 
 sheep2.Start(); 
-</script>
-<script>
 var sheep3 = new eSheep(); 
 sheep3.Start(); 
-</script>
-<script>
 var sheep4 = new eSheep(); 
 sheep4.Start(); 
+}
 </script>
 <script>
     (function () {
