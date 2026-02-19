@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Unicode Key Generator</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at center, #111 0%, #000 70%);
+        font-family: "Segoe UI Symbol", "Noto Sans Symbols", monospace;
+        color: white;
+    }
+
+    .container {
+        text-align: center;
+        padding: 40px;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(15px);
+        border-radius: 25px;
+        box-shadow: 0 0 40px rgba(0,255,255,0.3);
+    }
+
+    .output {
+        font-size: 40px;
+        letter-spacing: 6px;
+        padding: 25px 40px;
+        margin-bottom: 25px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #00f5ff, #8a2be2, #ff0080);
+        background-size: 300% 300%;
+        animation: gradientShift 6s infinite alternate;
+        text-shadow: 0 0 10px rgba(255,255,255,0.9),
+                     0 0 25px rgba(0,255,255,0.7);
+        user-select: all;
+        min-height: 60px;
+        word-break: break-all;
+    }
+
+    input {
+        width: 120px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 10px;
+        border: none;
+        text-align: center;
+        background: #222;
+        color: white;
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        background: #222;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    button:hover {
+        background: #444;
+        transform: scale(1.05);
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+
+    @keyframes flicker {
+        0%,100% { opacity: 1; }
+        50% { opacity: 0.6; }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="output" id="unicodeOutput"></div>
+
+    <div>
+        <input type="number" id="maxLength" placeholder="Length" min="1" max="500" value="20">
+        <button onclick="generate()">Generate</button>
+    </div>
+</div>
+
+<script>
+const keyCodes = [
+    0xFE03, 0xFF08, 0xFF09, 0xFF0D, 0xFF1B,
+    0xFFE1, 0xFFE3, 0xFFE4, 0xFFE9, 0xFFEB,
+    0xFFFF, 0xFF13, 0xFFE5, 0x0020,
+    0xFF55, 0xFF56, 0xFF57, 0xFF50,
+    0xFF51, 0xFF52, 0xFF53, 0xFF54,
+    0xFF63, 0xFFBE, 0xFFBF, 0xFFC0,
+    0xFFC1, 0xFFC2, 0xFFC3, 0xFFC4,
+    0xFFC5, 0xFFC6, 0xFFC7, 0xFFC8,
+    0xFFC9, 0xFF7F, 0xFF14
+];
+
+function generate() {
+    let length = parseInt(document.getElementById("maxLength").value);
+
+    if (isNaN(length) || length < 1) {
+        alert("Please enter a valid length (1+).");
+        return;
+    }
+
+    length = Math.min(length, 1000); // safety cap
+
+    let result = "";
+
+    for (let i = 0; i < length; i++) {
+        let code = keyCodes[Math.floor(Math.random() * keyCodes.length)];
+        result += String.fromCodePoint(code);
+    }
+
+    const output = document.getElementById("unicodeOutput");
+    output.textContent = result;
+
+    // restart flicker animation
+    output.style.animation = "none";
+    void output.offsetWidth;
+    output.style.animation = "flicker 0.2s 3";
+}
+
+generate();
+</script>
+
+</body>
+</html>
