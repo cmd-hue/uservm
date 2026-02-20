@@ -1,6 +1,9 @@
 let nodelist = [];
 let usernames = [];
 let messages = [];
+    if (currentConn !== null && currentConn.ws) {
+  currentConn.ws.addEventListener("open", updateNodeList);
+  }
 
 /* =========================
    GET NODE URL FROM CURRENT VM
