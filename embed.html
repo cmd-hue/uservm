@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.ico">
+<head>
+    <meta charset="UTF-8">
+    <title>CollabVM</title>
+    <meta name="description" content="Take turns controlling online virtual machines with complete strangers, on CollabVM! NOTE: This is a customized version of CollabVM++">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="CollabVM">
+        <meta property="og:url" content="https://cmd-hue.github.io/uservm/">
+        <meta property="og:description" content="Take turns controlling online virtual machines with complete strangers, on CollabVM!">
+        <meta property="og:site_name" content="Computernewb, CMD-HUE, totallyNotAUser">
+        <meta property="og:image" content="https://cmd-hue.github.io/uservm/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="embed.css" media="all">
+    <script src="https://adrianotiger.github.io/web-esheep/dist/esheep.min.js"></script>
+</head>
+<body>
+    <div class="modal-wrapper" id="welcome-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">CollabVM++ first time setup</span>
+            </div>
+            <div class="modal-page-wrapper">
+                <div id="welcome-page-1" class="modal-page">
+                    <div class="modal-body">
+                        <p>Welcome to CollabVM++!</p>
+                        <p>This web app is intended to replace the normal collabvm web apps. You can have a list of all VMs on one page! CollabVM++ also has more features, and even more coming soon!!</p>
+                        <p>We hope you will enjoy using CollabVM++</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-green" onclick="modalPageForward('#welcome-page-1', '#welcome-page-2');firstTimeSetupLoadDefaults()">Next</button>
+                    </div>
+                </div>
+                <div id="welcome-page-2" style="display: none;" class="modal-page">
+                    <div class="modal-body">
+                        <p>Let's choose your username and the CollabVM/UserVM services/websockets you use.</p>
+                        <label>Username: <input type="text" id="welcome-setup-username" placeholder="username..." maxlength="20" size="20"></label><br>
+                        <p>Enter one server IP per line. You can change them later in settings.</p>
+                        <textarea id="welcome-setup-server-list" cols="70" rows="16"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="modalPageBack('#welcome-page-2', '#welcome-page-1')">Back</button>
+                        <button onclick="modalPageForward('#welcome-page-2', '#welcome-page-3');firstTimeSetupSaveSettings()" class="btn-green">Next</button>
+                    </div>
+                </div>
+                <div id="welcome-page-3" style="display: none;" class="modal-page">
+                    <div class="modal-body">
+                        All done! Now click "Finish" and start using CollabVM++
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="modalPageBack('#welcome-page-3', '#welcome-page-2')">Back</button>
+                        <button onclick="localStorage.setItem('cvmClientUsed', true);closeCurrentModal(() => window.location.reload())" class="btn-green">Finish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-wrapper" id="settings-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Settings</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                                <button onclick="catboxvm(true)" hidden>Set Catbox Webhook</button>
+                <label>Username: <input type="text" id="settings-username" placeholder="username..." maxlength="20" size="20"></label><br>
+                Servers: <br>
+                <textarea id="settings-servers" cols="70" rows="10"></textarea>
+                <br><br>
+                <label>Chat sound: <input type="text" id="settings-chat-sound" size="50"></label><br><br>
+                <label>Show chat time<input id="settings-chat-time" type="checkbox" name=""></label><br>
+                <label>Show chat time in UTC<input id="settings-chat-time-utc" type="checkbox" name=""></label><br><br>
+                <label>Show eSheep<input id="settings-esheep" type="checkbox" name=""></label><br><br>
+                <label>Show Sidelink<input id="settings-sidelink" type="checkbox" value="true" name=""></label><br><br>
+                <label>Make VM view fit screen horizontally<input id="settings-vm-view-fit" type="checkbox" name=""></label><br><br>
+                <button class="btn-red" onclick="resetConfirmation()">Reset all settings</button>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeCurrentModal()">Cancel</button>
+                <button class="btn-green" onclick="saveSettingsFromUI();closeCurrentModal()">Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-wrapper" id="bugs-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Known Bugs</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>Hyphens and some other keys don't work</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-green" onclick="closeCurrentModal()">Ok</button>
+            </div>
+        </div>
+    </div>
+        <div class="modal-wrapper" id="news-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">News</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+Oh...
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn-green" onclick="closeCurrentModal()">Ok</button>
+            </div>
+        </div>
+    </div>
+            <div class="modal-wrapper" id="cmd-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Copygangster</span>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+            <center> 
+               <ul>
+                <li>net user chicken /add</li>
+                <li>https://dns.nextdns.io/f2be86 - DNS</li>
+                <li>how to penguin deez nuts</li>
+            </ul></center>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-green" onclick="closeCurrentModal()">Ok</button>
+            </div>
+        </div>
+    </div>
+    <div id="navbar">
+        <span id="navbar-logo">COLLABVM UNOFFICIAL VIEWER</span>
+        <span id="navbar-back" style="display: none;" onclick="exitVM()">Back</span>
+        <span onclick="loadSettingsToUI();openModal('settings-modal')">Settings</span>
+        <span> | </span>
+        <span onclick="openModal('bugs-modal')">Known Bugs</span>
+        <span> | </span>
+        <span onclick="openModal('news-modal')">News</span>
+        <span> | </span>
+        <span onclick="openModal('cmd-modal')">Copygangster</span>
+        <span> | </span>
+        <a href="autotyperkeys.html">Autotyper Key Code Refs</a>
+    </div>
+	<hr>
+    <div id="vm-list">
+    </div>
+    <div id="vm-view" style="display:none;">
+        <center>
+            <div id="vm-header">Loading...</div>
+        </center>
+        <center>
+            <canvas id="vm-canvas"></canvas>
+        </center>
+        <center>
+            <div id="turn-status"></div>
+            <div id="vote-status" style="display:none;">
+                <span id="vote-time">...</span> seconds left until vote ends<br>
+                yes - <span id="votes-yes">...</span> votes; no - <span id="votes-no">...</span> votes
+            </div>
+            <div id="vm-buttons" hidden>
+                <div>
+                    <button id="turn-btn" onclick="takeTurn()">Take Turn</button>
+                    <button id="end-turn-btn" onclick="endTurn()">End Turn</button>
+                    <button onclick="voteYes()">Vote Yes</button>
+                    <button onclick="voteNo()">Vote No</button>
+                    <button onclick="autotypeFromClipboard()">Autotype from clipboard</button>
+                    <button onclick="screenshotvm()">Save VM Screen As PNG</button>
+                    <button onclick="videovm()" class="videorec">Record VM Screen</button>
+                </div>
+                <div>
+                    <button onclick="sendCtrlAltDel()">Send C-M-Del</button>
+                    <input type="text" value="text here" class="thingy">
+                    <button onclick="_autotype(gam.value)">Insert Thingy</button>
+                </div>
+            </div>
+        </center>
+        <br>
+        <div id="under-vm" hidden>
+            <div id="user-list-wrapper2">
+                <div id="user-list-wrapper">
+                    <div id="user-list-header">Users online: &lt;loading...&gt;</div>
+                    <div id="user-list"></div>
+                </div>
+            </div>
+            <div id="chat-wrapper2">
+                <div id="chat-wrapper">
+                    <div id="chat-display"></div>
+                    <div id="chat-input-group">
+                        <span id="chat-username"></span>
+                        <input id="chat-input" type="text" maxlength="100">
+                        <button id="chat-send">Send</button>
+                        <button id="chat-sound-toggle">Mute</button>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <div id="loading"><div id="loading-indicator"></div></div>
+    <script src="modal.js"></script>
+    <script src="firsttime.js"></script>
+    <script src="settings.js"></script>
+    <script src="autotyper.js"></script>
+    <script src="index2.js"></script>
+    <script src="record.js"></script>
+</body>
+</html>
+<script src="https://youtomb-mobile.github.io/shark.js"></script>
+<script>
+if (localStorage.getItem('showEsheep') === true) {
+    var sheep = new eSheep(); 
+sheep.Start(); 
+var sheep2 = new eSheep(); 
+sheep2.Start(); 
+var sheep3 = new eSheep(); 
+sheep3.Start(); 
+var sheep4 = new eSheep(); 
+sheep4.Start(); 
+var sheep5 = new eSheep(); 
+sheep5.Start(); 
+var sheep6 = new eSheep(); 
+sheep6.Start(); 
+}
+</script>
+<script>
+    if (localStorage.getItem('showSidelink') === true) {
+        (function () {
+    // Prevent duplicate iframe
+    if (document.querySelector('iframe[name="sidelink"]')) return;
+
+    var iframe = document.createElement("iframe");
+    iframe.width = "100";
+    iframe.height = "300";
+    iframe.name = "sidelink";
+    iframe.src = "https://dogspit.nekoweb.org/sidelink.html";
+
+    iframe.style.position = "fixed";
+    iframe.style.right = "0";
+    iframe.style.top = "50%";
+    iframe.style.transform = "translateY(-50%)";
+    iframe.style.border = "none";
+    iframe.style.zIndex = "999999";
+
+    document.body.appendChild(iframe);
+})();
+    }
+const fanvas = document.querySelector("canvas");
+var gam = document.getElementsByClassName("thingy")[0];
+var gamvalue = gam.value
+
+</script>
