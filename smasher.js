@@ -22,10 +22,6 @@ function updateNodeList() {
   console.log("Node list set:", nodelist);
 }
 
-// wait for VM connection
-if (currentConn !== null && currentConn.ws) {
-  currentConn.ws.addEventListener("open", updateNodeList);
-}
 
 /* =========================
    LOAD JSON DATA
@@ -156,6 +152,9 @@ function fix(uwu) {
 ========================= */
 function spaminit() {
   loadData().then(() => {
+    if (currentConn !== null && currentConn.ws) {
+  currentConn.ws.addEventListener("open", updateNodeList);
+  }
     const wait = setInterval(() => {
       if (Array.isArray(nodelist) && nodelist.length > 0) {
         clearInterval(wait);
