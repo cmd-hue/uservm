@@ -547,3 +547,25 @@ loadVMList();
 
 $('#loading').hide();
 
+(function () {
+    const params = new URLSearchParams(window.location.search);
+    const isEmbed = params.get("embed") === "true";
+
+    if (!isEmbed) return;
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const listEntry = document.getElementById("vm-list-entry");
+        const canvas = document.getElementById("vm-canvas");
+
+        if (!listEntry || !canvas) return;
+
+        listEntry.addEventListener("click", function () {
+            canvas.style.position = "fixed";
+            canvas.style.top = "0";
+            canvas.style.left = "0";
+            canvas.style.width = "100vw";
+            canvas.style.height = "100vh";
+            canvas.style.zIndex = "9999";
+        });
+    });
+})();
