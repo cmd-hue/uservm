@@ -124,6 +124,7 @@ textarea:focus-visible, input[type=text]:focus-visible {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    display: none;
 }
 
 #navbar>* {
@@ -196,13 +197,15 @@ textarea:focus-visible, input[type=text]:focus-visible {
     margin-top: 24px;
 }
 
-#vm-header {
+#vm-header, hr {
     font-size: 1.4em;
+    display: none;
 }
 
 #vm-canvas {
     width: 100vw;
     height: 100vh;
+    padding: 0;
 }
 
 canvas.has-turn {
@@ -220,8 +223,7 @@ canvas.waiting-turn {
 #under-vm {
     display: grid;
     grid-template-columns: 32% 65%;
-    margin-left: 1%;
-    margin-bottom: 4em;
+    display: none;
 }
 
 #user-list-wrapper2 {
