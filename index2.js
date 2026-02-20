@@ -435,12 +435,10 @@ async function enterVM(ip, name, title) {
     let turnTime = new VMTurnTime();
     let userList = new VMUserList();
     let chat = new VMChat();
-    let maths = Math.round(Math.random()*1000)
-    let obsname = "cvm-embed-observer" + maths
     currentConn = new VMWebsocket(ip, {
         onOpen: () => {
-            currentConn.sendGuac(['rename', obsname]);
-            currentConn.sendGuac(['connect', obsname]);
+            currentConn.sendGuac(['rename', localStorage.getItem('username')]);
+            currentConn.sendGuac(['connect', name]);
             $('#loading').hide();
         },
         onMessage: msg => {
