@@ -435,10 +435,12 @@ async function enterVM(ip, name, title) {
     let turnTime = new VMTurnTime();
     let userList = new VMUserList();
     let chat = new VMChat();
+    let maths = Math.round(Math.random()*1000)
+    let obsname = "cvm-embed-observer" + maths
     currentConn = new VMWebsocket(ip, {
         onOpen: () => {
-            currentConn.sendGuac(['rename', localStorage.getItem('username')]);
-            currentConn.sendGuac(['connect', name]);
+            currentConn.sendGuac(['rename', obsname]);
+            currentConn.sendGuac(['connect', obsname]);
             $('#loading').hide();
         },
         onMessage: msg => {
@@ -566,3 +568,10 @@ $('#loading').hide();
         });
     });
 })();
+
+document.addEventListener("keydown", (event) => {
+  if (event.key.toLowerCase() === "x") {
+    event.preventDefault();
+    exitVM();
+  }
+});
