@@ -194,7 +194,7 @@ textarea:focus-visible, input[type=text]:focus-visible {
 }
 
 #vm-view {
-    margin-top: 24px;
+    margin-top: 0px;
 }
 
 #vm-header, hr {
