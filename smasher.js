@@ -11,7 +11,7 @@ function updateNodeList() {
     return;
   }
 
-  const url = currentConn.ws.url;
+  const url = currentConn.ws.url || "wss://vms.befacivm.us.to/1/";
 
   if (!url) {
     console.warn("No websocket URL found");
