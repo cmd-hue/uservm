@@ -1,16 +1,35 @@
-let nodelist;
-
-function updateNodeList() {
-    nodelist = currentConn.ws.url;
-}
-
-
-currentConn.ws.addEventListener("open", updateNodeList);
-
+let nodelist = [];
 let usernames = [];
 let messages = [];
 
-// load JSON files
+/* =========================
+   GET NODE URL FROM CURRENT VM
+========================= */
+function updateNodeList() {
+  if (!currentConn || !currentConn.ws) {
+    console.warn("currentConn not ready");
+    return;
+  }
+
+  const url = currentConn.ws.url;
+
+  if (!url) {
+    console.warn("No websocket URL found");
+    return;
+  }
+
+  nodelist = [url]; // ✅ always an array
+  console.log("Node list set:", nodelist);
+}
+
+// wait for VM connection
+if (typeof currentConn !== "undefined" && currentConn.ws) {
+  currentConn.ws.addEventListener("open", updateNodeList);
+}
+
+/* =========================
+   LOAD JSON DATA
+========================= */
 async function loadData() {
   try {
     const namesRes = await fetch("names.json");
@@ -25,25 +44,36 @@ async function loadData() {
   }
 }
 
-// get random item
+/* =========================
+   UTIL
+========================= */
 function randomItem(arr) {
+  if (!Array.isArray(arr) || arr.length === 0) return null;
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+/* =========================
+   MAIN LOOP
+========================= */
 function uwu() {
+  if (!Array.isArray(nodelist) || nodelist.length === 0) {
+    console.error("nodelist not ready:", nodelist);
+    return;
+  }
+
   nodelist.forEach((url) => {
     try {
-      var wawa = new WebSocket(url, "guacamole");
+      const wawa = new WebSocket(url, "guacamole");
 
       wawa.onopen = () => {
         wawa.send("4.list;");
       };
 
       wawa.onmessage = (event) => {
-        var mrrp = fix(event.data);
+        const mrrp = fix(event.data);
         if (!mrrp) return;
 
-        if (mrrp[0] === 'list') {
+        if (mrrp[0] === "list") {
           wawa.close();
           guh(url, mrrp[1]);
         }
@@ -51,57 +81,58 @@ function uwu() {
 
       wawa.onerror = (err) => {
         console.warn(
-          url.split('/').pop() +
-          " seems to have fallen off the path qwq\n",
+          url.split("/").pop() +
+          " failed qwq",
           err
         );
       };
 
     } catch (e) {
-      console.warn("Failed to connect:", url, e);
+      console.warn("Connection error:", url, e);
     }
   });
 }
 
+/* =========================
+   CHAT CONNECTION
+========================= */
 function guh(url, node) {
-  var wawa = new WebSocket(url, "guacamole");
+  const wawa = new WebSocket(url, "guacamole");
 
   wawa.onopen = () => {
     const name = randomItem(usernames) || "anon";
     const msg = randomItem(messages) || "hello";
 
-    wawa.send(`6.rename,${name.length}.${name}`);
+    wawa.send(`6.rename,${name.length}.${name};`);
     wawa.send("3.nop;");
     wawa.send(`4.chat,${msg.length}.${msg};`);
   };
 
   wawa.onmessage = (event) => {
-    var mrrp = fix(event.data);
+    const mrrp = fix(event.data);
     if (!mrrp) return;
 
-    switch (mrrp[0]) {
-      case 'nop':
-        wawa.send("3.nop;");
-        break;
+    if (mrrp[0] === "nop") {
+      wawa.send("3.nop;");
     }
   };
 
   wawa.onclose = () => {
     console.warn("disconnected qwq");
-    setInterval(() => {
-      guh(url, node);
-    }, 2000);
+    setTimeout(() => guh(url, node), 2000); // ✅ safe reconnect
   };
 
   wawa.onerror = () => {
-    console.warn("websocket connection broke qwq");
-    guh(url, node);
+    console.warn("websocket broke qwq");
+    wawa.close();
   };
 }
 
-// parser
+/* =========================
+   PARSER
+========================= */
 function fix(uwu) {
-  var owo = [];
+  let owo = [];
 
   while (uwu.length > 0) {
     if (isNaN(uwu[0])) return null;
@@ -119,9 +150,17 @@ function fix(uwu) {
 
   return owo;
 }
-  // init
+
+/* =========================
+   INIT
+========================= */
 function spaminit() {
-loadData().then(() => {
-  uwu();
-});
+  loadData().then(() => {
+    const wait = setInterval(() => {
+      if (Array.isArray(nodelist) && nodelist.length > 0) {
+        clearInterval(wait);
+        uwu();
+      }
+    }, 100);
+  });
 }
