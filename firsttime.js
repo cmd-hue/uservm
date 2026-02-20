@@ -16,7 +16,27 @@ vms.shijimanet.com/vm6
 vms.shijimanet.com/vm7
 vms.shijimanet.com/vm8
 vps1vm8.shijimanet.com/vm9
-vps1vm8.shijimanet.com/vm10`);
+vps1vm8.shijimanet.com/vm10
+vms.befacivm.us.to/1
+vms.befacivm.us.to/2
+vms.befacivm.us.to/3
+userfriendly.aolonline.top/ufvm1
+computernewb.com/~lily/fgvm2/
+cvm.madz.mov/vm1
+cvm.madz.mov/vm2
+cvm.madz.mov/vm3
+enderman0125.collabvm.org/
+vm1.hddnetworks.xyz
+vm2.hddnetworks.xyz
+vm3.hddnetworks.xyz
+guh.alwaysdata.net/collab-vm/astralvm1
+guh.alwaysdata.net/collab-vm/astralvm2
+enixnet.com/collab-vm/vm1
+enixnet.com/collab-vm/vm2
+vm1.skycore.website
+vm3.skycore.website
+bobikowice.pl/cvm
+bobikowice.pl/cvm2`);
 }
 
 function firstTimeSetupSaveSettings() {
