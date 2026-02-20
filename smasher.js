@@ -23,7 +23,7 @@ function updateNodeList() {
 }
 
 // wait for VM connection
-if (typeof currentConn !== "undefined" && currentConn.ws) {
+if (typeof currentConn !== "undefined" && !currentConn.ws) {
   currentConn.ws.addEventListener("open", updateNodeList);
 }
 
