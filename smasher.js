@@ -21,7 +21,7 @@ function uwu() {
 
       wawa.onerror = (err) => {
         console.warn(
-          url.split('/').pop() +
+          url +
           " seems to have fallen off the path qwq\n",
           err
         );
