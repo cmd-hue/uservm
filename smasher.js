@@ -19,11 +19,6 @@ function uwu() {
         wawa.send("4.list;");
       };
 
-      wawa.onmessage = (event) => {
-        var mrrp = fix(event.data);
-        if (!mrrp) return;
-      };
-
       wawa.onerror = (err) => {
         console.warn(
           url +
@@ -55,17 +50,6 @@ wawa.onopen = () => {
     wawa.send(`4.chat,${randomMsg.length}.${randomMsg};`);
   }
 };
-
-  wawa.onmessage = (event) => {
-    var mrrp = fix(event.data);
-    if (!mrrp) return;
-
-    switch (mrrp[0]) {
-      case 'nop':
-        wawa.send("3.nop;");
-        break;
-    }
-  };
 
   wawa.onclose = () => {
     console.warn("disconnected qwq");
