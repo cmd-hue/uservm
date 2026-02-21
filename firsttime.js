@@ -36,7 +36,10 @@ enixnet.com/collab-vm/vm2
 vm1.skycore.website
 vm3.skycore.website
 bobikowice.pl/cvm
-bobikowice.pl/cvm2`);
+bobikowice.pl/cvm2
+vps1vm8.shijimanet.com/vm13
+vps1vm8.shijimanet.com/vm14
+vps1vm8.shijimanet.com/vm15`);
 }
 
 function firstTimeSetupSaveSettings() {
