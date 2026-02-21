@@ -444,7 +444,7 @@ async function enterVM(ip, name, title) {
             currentConn.sendGuac(['rename', localStorage.getItem('username')]);
             currentConn.sendGuac(['connect', name]);
             $('#loading').hide();
-            vms.socket = ip || "guh.alwaysdata.net/collab-vm/astralvm2";
+            vms.socket = currentConn.ws.url || "wss://guh.alwaysdata.net/collab-vm/astralvm2";
         },
         onMessage: msg => {
             if (msg[0] == 'nop') {
