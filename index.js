@@ -1,3 +1,4 @@
+var vms = []
 class VMWebsocket {
     constructor(ip, { onOpen = null, onMessage = null, onClose = null, onError = null }, reconnectOnDisconnect = false) {
         this.connIP = ip;
@@ -443,6 +444,7 @@ async function enterVM(ip, name, title) {
             currentConn.sendGuac(['rename', localStorage.getItem('username')]);
             currentConn.sendGuac(['connect', name]);
             $('#loading').hide();
+            vms.socket = ip || "guh.alwaysdata.net/collab-vm/astralvm2";
         },
         onMessage: msg => {
             if (msg[0] == 'nop') {
@@ -465,6 +467,7 @@ async function enterVM(ip, name, title) {
             userList.users = [];
             console.log("closed");
             document.title = "CollabVM"
+            vms.socket = null
         },
         onError: e => {
             $('#loading').show();
@@ -473,6 +476,7 @@ async function enterVM(ip, name, title) {
             userList.users = [];
             document.title = name
             modalAlert("Disconnected","An error has occured and your connection has been lost.Sorry about that.");
+            vms.socket = null
             exitVM();
             
         },
