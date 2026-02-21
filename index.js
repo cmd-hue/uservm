@@ -1,4 +1,4 @@
-var vms = []
+var vms = {};
 class VMWebsocket {
     constructor(ip, { onOpen = null, onMessage = null, onClose = null, onError = null }, reconnectOnDisconnect = false) {
         this.connIP = ip;
