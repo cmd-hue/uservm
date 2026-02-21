@@ -414,11 +414,13 @@ function sendCtrlAltDel() {
     currentConn.sendGuac(['key', '65513', '0']); // release alt
     currentConn.sendGuac(['key', '65507', '0']); // release ctrl
 }
-function pressCapsLock() {
-    currentConn.sendGuac(['key', '65509', '1']); // press caps lock
+function F11() {
+    currentConn.sendGuac(['key', '122', '1']); // press F11
+    currentConn.sendGuac(['key', '122', '0']); // release F11
 }
-function releaseCapsLock() {
-    currentConn.sendGuac(['key', '65509', '0']); // release caps lock
+function capsLock() {
+    currentConn.sendGuac(['key', '65509', '1']);
+    currentConn.sendGuac(['key', '65509', '0']);
 }
 function voteYes() {
     currentConn.sendGuac(['vote', '1']);
