@@ -1,4 +1,4 @@
-const nodelist = [vms.socket]
+var nodelist = ["${vms.socket}"]
 var message = ["directv?!?","tester","bing chillin","dat was nickelodeon vor vandaag. tot morgen!","giggity giggity goo!"]
 function uwu() {
   nodelist.forEach((url) => {
