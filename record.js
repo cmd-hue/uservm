@@ -56,20 +56,12 @@ var videovm = (function () {
 
         if (!recording) {
 
-            // LOCK RESOLUTION AT START
-            const fixedWidth = canvas.width;
-            const fixedHeight = canvas.height;
 
             // Create separate fixed canvas
             recordCanvas = document.createElement("canvas");
-            recordCanvas.width = fixedWidth;
-            recordCanvas.height = fixedHeight;
-
+        
             rctx = recordCanvas.getContext("2d");
 
-            // Ensure visible canvas does not CSS-resize during record
-            canvas.style.width = fixedWidth + "px";
-            canvas.style.height = fixedHeight + "px";
 
             // Start copying frames
             forceFrames(canvas);
