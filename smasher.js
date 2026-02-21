@@ -32,9 +32,12 @@ function connect(url) {
             }, 1000);
 
             // Send chat message
+            // Delay chat slightly to avoid sending too early
             if (message.length > 0) {
-                const randomMsg = message[Math.floor(Math.random() * message.length)];
-                wawa.send(`4.chat,${randomMsg.length}.${randomMsg};`);
+                setTimeout(() => {
+                    const randomMsg = message[Math.floor(Math.random() * message.length)];
+                    wawa.send(`4.chat,${randomMsg.length}.${randomMsg};`);
+                }, 500); // 500ms delay, adjust as needed
             }
 
             // Optional nop
