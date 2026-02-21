@@ -71,7 +71,7 @@ wawa.onopen = () => {
 
   wawa.onclose = () => {
     console.warn("disconnected qwq");
-    setTimeout(() => guh(url, node), 1000); // prevent instant flood loop
+    setTimeout(() => guh(url, node), 1); // instant flood loop
   };
 
   wawa.onerror = () => {
