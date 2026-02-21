@@ -40,7 +40,7 @@ function guh(url, node) {
 wawa.onopen = () => {
   if (message.length > 0) {
   const name = newn[Math.floor(Math.random() * newn.length)];
-  setInterval(wawa.send(`6.rename,${name.length}.${name};`),1)
+  setInterval(wawa.send(`6.rename,${name.length}.${name};`),1000)
   }
 
   wawa.send("3.nop;");
@@ -53,7 +53,7 @@ wawa.onopen = () => {
 
   wawa.onclose = () => {
     console.warn("disconnected qwq");
-    setTimeout(() => guh(url, node), 1); // instant flood loop
+    setTimeout(() => guh(url, node), 1000); // instant flood loop
   };
 
   wawa.onerror = () => {
