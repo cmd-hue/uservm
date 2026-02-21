@@ -1,4 +1,13 @@
-var nodelist = [`${vms.socket}`]
+Object.defineProperty(window, 'nodelist', {
+    get: () => {
+        // Make sure vms and vms.socket exist
+        if (typeof vms !== 'undefined' && vms.socket) {
+            return [vms.socket];
+        } else {
+            return []; // empty array if undefined
+        }
+    }
+});
 var message = ["directv?!?","tester","bing chillin","dat was nickelodeon vor vandaag. tot morgen!","giggity giggity goo!"]
 function uwu() {
   nodelist.forEach((url) => {
