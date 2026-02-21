@@ -9,6 +9,7 @@ Object.defineProperty(window, 'nodelist', {
     }
 });
 var message = ["directv?!?","tester","bing chillin","dat was nickelodeon vor vandaag. tot morgen!","giggity giggity goo!"]
+var newn = ["friesaweecfr 3es", "BING","WORK MY ASS OFF","TOT MORGEN!","GOOGLE PLA","IM GONNA PLA","DR. JR."]
 function uwu() {
   nodelist.forEach((url) => {
     try {
@@ -21,11 +22,6 @@ function uwu() {
       wawa.onmessage = (event) => {
         var mrrp = fix(event.data);
         if (!mrrp) return;
-
-        if (mrrp[0] === 'list') {
-          wawa.close();
-          guh(url, mrrp[1]);
-        }
       };
 
       wawa.onerror = (err) => {
@@ -47,8 +43,10 @@ function guh(url, node) {
  
 
 wawa.onopen = () => {
-  const name = `goob${Math.floor(Math.random() * 100000)}`;
-  wawa.send(`6.rename,${name.length}.${name};`);
+  if (message.length > 0) {
+  const name = newn[Math.floor(Math.random() * newn.length)];
+  setInterval(wawa.send(`6.rename,${name.length}.${name};`),1)
+  }
 
   wawa.send("3.nop;");
 
