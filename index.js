@@ -415,12 +415,23 @@ function sendCtrlAltDel() {
     currentConn.sendGuac(['key', '65507', '0']); // release ctrl
 }
 function F11() {
-    currentConn.sendGuac(['key', '122', '1']); // press F11
-    currentConn.sendGuac(['key', '122', '0']); // release F11
+    currentConn.sendGuac(['key', '65480', '1']); // press F11
+    currentConn.sendGuac(['key', '65480', '0']); // release F11
 }
+var clbutton = document.getElementsByClassName("clbutton");
 function capsLock() {
-    currentConn.sendGuac(['key', '65509', '1']);
-    currentConn.sendGuac(['key', '65509', '0']);
+    var capsenabled = false
+    
+    if (capsenabled === false) {
+        currentConn.sendGuac(['key', '65509', '1']);
+        capsenabled = true;
+        clbutton.innerHTML = "Release Caps Lock"
+    } else {
+         currentConn.sendGuac(['key', '65509', '0']);
+         capsenabled = false;
+         clbutton.innerHTML = "Press Caps Lock"
+    }
+   
 }
 function voteYes() {
     currentConn.sendGuac(['vote', '1']);
