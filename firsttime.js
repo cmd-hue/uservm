@@ -39,7 +39,13 @@ bobikowice.pl/cvm
 bobikowice.pl/cvm2
 vps1vm8.shijimanet.com/vm13
 vps1vm8.shijimanet.com/vm14
-vps1vm8.shijimanet.com/vm15`);
+vps1vm8.shijimanet.com/vm15
+vps1vm8.shijimanet.com/vm12
+vps1vm8.shijimanet.com/vm16
+vps1vm8.shijimanet.com/vm17
+vps1vm8.shijimanet.com/vm18
+vps1vm8.shijimanet.com/vm19
+vps1vm8.shijimanet.com/vm20`);
 }
 
 function firstTimeSetupSaveSettings() {
