@@ -419,8 +419,9 @@ function F11() {
     currentConn.sendGuac(['key', '65480', '0']); // release F11
 }
 var clbutton = document.getElementsByClassName("clbutton");
+var capsenabled = false
 function capsLock() {
-    var capsenabled = false
+    
     
     if (capsenabled === false) {
         currentConn.sendGuac(['key', '65509', '1']);

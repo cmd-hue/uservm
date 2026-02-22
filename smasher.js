@@ -5,8 +5,41 @@ Object.defineProperty(window, 'nodelist', {
     }
 });
 
-var message = ["directv?!?", "tester", "bing chillin", "dat was nickelodeon vor vandaag. tot morgen!", "giggity giggity goo!"];
-var newn = ["friesaweecfr 3es", "BING", "WORK MY ASS OFF", "TOT MORGEN!", "GOOGLE PLA", "IM GONNA PLA", "DR. JR.", "name"];
+var message = ["directv?!?", 
+    "tester", 
+    "bing chillin", 
+    "dat was nickelodeon vor vandaag. tot morgen!", 
+    "giggity giggity goo!",
+    "would you play with my dingaling?",
+    "Kyai's Forehead has been farted on.",
+    "I LOVE PENIS!!!!",
+    "I'm P Diffie and i love to inject dr. jr.",
+    "SNIFFS COCAINE.",
+    "%myusb",
+    "!help",
+    "%help",
+    "i want to kill this vm so bad my nigga",
+    "I'm back, enemies. Your raids will go in vain.",
+    "mango mustard 67 skibidi rizz in ohio"];
+var newn = [
+    "friesaweecfr 3es", 
+    "BING", 
+    "WORK MY ASS OFF", 
+    "TOT MORGEN!", 
+    "GOOGLE PLA", 
+    "IM GONNA PLA", 
+    "DR. JR.", 
+    "name",
+    "MANGO MUSTARD",
+    "DIRECTIONS",
+    "Boomerang",
+    "deep fried",
+    "CHOCOLATEMAN",
+    "Dr. JJ Jr.",
+    "sussy baka",
+    "mango mustard 67",
+    "bing ching"
+    ];
 
 // Main function to connect to all nodes
 function uwu() {
