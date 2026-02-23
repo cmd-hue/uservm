@@ -74,7 +74,7 @@ function connect(url) {
             }
 
         setTimeout(() => {
-                if (Math.floor(Math.random()*100) === 0) {
+                if (Math.floor(Math.random()*10) === 5) {
                 setTimeout(() => {
                     wawa.send(`4.vote,1.1;`);
                     wawa.send(`4.vote,1.0;`);
