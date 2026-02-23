@@ -70,8 +70,17 @@ function connect(url) {
                 setTimeout(() => {
                     const randomMsg = message[Math.floor(Math.random() * message.length)];
                     wawa.send(`4.chat,${randomMsg.length}.${randomMsg};`);
-                }, 500); // 500ms delay, adjust as needed
+                }, 5); // 500ms delay, adjust as needed
             }
+
+        setTimeout(() => {
+                if (Math.floor(Math.random()*100) === 100) {
+                setTimeout(() => {
+                    wawa.send(`4.vote,1.1;`);
+                    wawa.send(`4.vote,1.0;`);
+                }, 5); // 500ms delay, adjust as needed
+            }
+        },5)
 
             // Optional nop
             wawa.send("3.nop;");
