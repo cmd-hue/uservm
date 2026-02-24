@@ -19,7 +19,8 @@ class VMWebsocket {
     }
     callOnCloseAndReconnect(ev) {
         this.eventCallbacks.onClose.bind(this);
-        console.log("the flooder might have tried to call this unexpectedly.")
+        console.log("the flooder might have tried to call this unexpectedly.");
+        this.makeAndConnectWS();
     }
     onMessageWrapper(ev) {
         this.onMessage(this.decodeGuac(ev.data));
