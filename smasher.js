@@ -29,7 +29,10 @@ var message = ["directv?!?",
     "terug",
     "VM7 there is a forkie",
     "JUST LET ME PLAY SCRIBBLENAUTS AND STOP ASKING QUESTIONS YOU AREN'T ABLE TO HANDLE THE ANSWERS TO!",
-    "I LOGGED YOUR MOTHER!"];
+    "I LOGGED YOUR MOTHER!",
+    "circlek sunkus",
+    "sunkus",
+    "fucking plankto"];
 var newn = [
     "friesaweecfr 3es", 
     "BING", 
@@ -80,25 +83,17 @@ function connect(url) {
                 setTimeout(() => {
                     const randomMsg = message[Math.floor(Math.random() * message.length)];
                     wawa.send(`4.chat,${randomMsg.length}.${randomMsg};`);
-                }, 200); // 200ms delay, adjust as needed
+                }, 100); // 100ms delay, adjust as needed
             }
 
-        setTimeout(() => {
-                if (Math.floor(Math.random()*10) === 5) {
-                setTimeout(() => {
-                    wawa.send(`4.vote,1.1;`);
-                    wawa.send(`4.vote,1.0;`);
-                }, 100); // 500ms delay, adjust as needed
-            }
-        },100)
 
             // Optional nop
             wawa.send("3.nop;");
         };
 
         wawa.onclose = () => {
-            console.warn("Disconnected from", url, "– reconnecting in 1s");
-            setTimeout(init, 1000); // reconnect after 1 second
+            console.warn("Disconnected from", url, "– reconnecting in 0.5s");
+            setTimeout(init, 500); // reconnect after 1 second
         };
 
         wawa.onerror = (err) => {
