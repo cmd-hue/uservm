@@ -20,7 +20,16 @@ var message = ["directv?!?",
     "%help",
     "i want to kill this vm so bad my nigga",
     "I'm back, enemies. Your raids will go in vain.",
-    "mango mustard 67 skibidi rizz in ohio"];
+    "mango mustard 67 skibidi rizz in ohio",
+    "ME LOVES DILDOS! FUCK NIGGERS!",
+    "vore me",
+    "FLOODED BY CHOCOLATEMAN! FUCK NIGGERS! FUCK FORKIES!",
+    "FUCK NIGGERS! FUCK FORKIES! FUCK JEWS!",
+    "come suck my pie ness",
+    "terug",
+    "VM7 there is a forkie",
+    "JUST LET ME PLAY SCRIBBLENAUTS AND STOP ASKING QUESTIONS YOU AREN'T ABLE TO HANDLE THE ANSWERS TO!",
+    "I LOGGED YOUR MOTHER!"];
 var newn = [
     "friesaweecfr 3es", 
     "BING", 
@@ -38,8 +47,9 @@ var newn = [
     "Dr. JJ Jr.",
     "sussy baka",
     "mango mustard 67",
-    "bing ching"
-    ];
+    "bing ching",
+    "terug",
+    "kindernet"];
 
 // Main function to connect to all nodes
 function uwu() {
