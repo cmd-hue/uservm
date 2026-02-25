@@ -32,7 +32,7 @@ var message = ["directv?!?",
     "I LOGGED YOUR MOTHER!",
     "circlek sunkus",
     "sunkus",
-    "fucking plankto"];
+    "fucking plankto","They'll bury you in a lunchbox!","!shoot","!flip"];
 var newn = [
     "friesaweecfr 3es", 
     "BING", 
@@ -52,7 +52,7 @@ var newn = [
     "mango mustard 67",
     "bing ching",
     "terug",
-    "kindernet"];
+    "kindernet","lol5765xd","MediaSpooky385","Astral"];
 
 // Main function to connect to all nodes
 function uwu() {
